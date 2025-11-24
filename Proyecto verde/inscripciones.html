@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscripciones - Expo Tecno Verde 2025</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #e8f5e9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: relative; /* Para logo gigante de fondo */
+            background: #2e7d32;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Logo gigante transparente */
+        .header-logo-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1600px; /* Ajusta tamaño si quieres */
+            opacity: 0.08;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Contenido del header */
+        .contenido-header {
+            position: relative;
+            z-index: 10;
+        }
+
+        .contenido-header h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #1b5e20;
+        }
+
+        /* BOTÓN VOLVER */
+        .volver {
+            display: inline-block;
+            background: #1b5e20;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .volver:hover {
+            background: #145116;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Logo gigante transparente -->
+    <img src="conciencia.png" alt="Logo fondo" class="header-logo-bg">
+
+    <div class="contenido-header">
+        <h1>Formulario de Inscripción</h1>
+    </div>
+</header>
+
+<div class="container">
+    <h2>Regístrate para la Expo Tecno Verde 2025</h2>
+
+    <form>
+        <label>Nombre Completo:</label>
+        <input type="text" placeholder="Ingresa tu nombre" required>
+
+        <label>Correo Electrónico:</label>
+        <input type="email" placeholder="ejemplo@correo.com" required>
+
+        <label>Teléfono:</label>
+        <input type="text" placeholder="Número de contacto" required>
+
+        <label>Categoría de Participación:</label>
+        <select required>
+            <option value="">Seleccione una opción</option>
+            <option>Estudiante</option>
+            <option>Docente</option>
+            <option>Expositor</option>
+            <option>Visitante</option>
+        </select>
+
+        <label>¿Deseas presentar un proyecto?</label>
+        <select>
+            <option>No</option>
+            <option>Sí</option>
+        </select>
+
+        <label>Comentarios:</label>
+        <textarea rows="4" placeholder="Opcional"></textarea>
+
+        <button type="submit">Enviar Inscripción</button>
+    </form>
+
+    <a class="volver" href="expo_inicio.html">⬅ Volver al Inicio</a>
+
+</div>
+
+</body>
+</html>
+

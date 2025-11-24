@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expo Tecno Verde 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                const logoPrincipal = document.querySelector(".contenido-header img");
+                logoPrincipal.style.opacity = 1;
+            }, 1000);
+        }
+
+        function abrirModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        function cerrarModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+</head>
+<body>
+
+    <!-- ======= HEADER ======= -->
+    <header class="header">
+        <!-- Logo transparente de fondo -->
+        <img src="conciencia.png" alt="Logo" class="header-logo-bg">
+
+        <!-- Contenido sobre el logo -->
+        <div class="contenido-header">
+             <img src="conciencia.png" alt="Expo Tecno Verde">
+            <h1>🌿 Expo Tecno Verde 2025</h1>
+            <p>Innovando para un planeta más sostenible</p>
+        </div>
+    </header>
+
+    <!-- ======= MENÚ ======= -->
+    <nav class="menu">
+        <ul>
+            <li><a href="expo_inicio.html">Inicio</a></li>
+            <li><a href="expo_agenda.html">Agenda</a></li>
+            <li><a href="expo_expositores.html">Expositores</a></li>
+            <li><a href="expo_contacto.html">Contacto</a></li>
+            <li><a href="expo_inscripciones.html">Inscripciones</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- EXPOSITOR DESTACADO -->
+        <section class="bloque">
+            <h2>🎤 Expositor destacado</h2>
+            <figure>
+                <img src="robotecologico.jpg" alt="Robot ecológico" onclick="abrirModal('modal1')">
+                <figcaption>EcoBot reciclado 2024</figcaption>
+            </figure>
+            <p>Haz clic en la imagen para más información.</p>
+        </section>
+
+        <!-- RECICLAJE INTELIGENTE -->
+        <section class="bloque">
+            <h2>♻️ Reciclaje inteligente</h2>
+            <figure>
+                <img src="recogedorinteligente.jpg" alt="Reciclaje inteligente" onclick="abrirModal('modal2')">
+                <figcaption>Sistema de reciclaje con IA</figcaption>
+            </figure>
+            <p>Haz clic en la imagen para más detalles.</p>
+        </section>
+
+        <!-- MOVILIDAD ECOLOGICA -->
+        <section class="bloque">
+            <h2>🚴‍♂️ Movilidad ecológica</h2>
+            <figure>
+                <img src="bicicleta.jpg" alt="Bicicleta eléctrica" onclick="abrirModal('modal3')">
+                <figcaption>Bicicletas eléctricas de carga rápida</figcaption>
+            </figure>
+            <p>Haz clic en la imagen para más información.</p>
+        </section>
+
+        <!-- AGRICULTURA URBANA -->
+        <section class="bloque">
+            <h2>🌱 Agricultura urbana</h2>
+            <figure>
+                <img src="agricultura_urbana.jpg" alt="Agricultura urbana" onclick="abrirModal('modal4')">
+                <figcaption>Huertos urbanos sostenibles</figcaption>
+            </figure>
+            <p>Haz clic en la imagen para más detalles.</p>
+        </section>
+
+    </main>
+
+    <!-- ================= MODALES ================= -->
+    <div id="modal1" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modal1')">&times;</span>
+            <h2>EcoBot Reciclado 2024</h2>
+            <p>Este robot está fabricado con plástico reutilizado y componentes reciclados. Su objetivo es demostrar nuevas formas de crear tecnología sin dañar el ambiente.</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modal2')">&times;</span>
+            <h2>Reciclaje Inteligente con IA</h2>
+            <p>El sistema usa sensores avanzados y redes neuronales para clasificar desechos automáticamente, aumentando la eficiencia hasta en un 40%.</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modal3')">&times;</span>
+            <h2>Bicicletas Eléctricas de Carga Rápida</h2>
+            <p>Estas bicicletas cuentan con baterías de litio ecológicas, motores silenciosos y estructura ligera, ideales para ciudades sostenibles.</p>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal('modal4')">&times;</span>
+            <h2>Agricultura Urbana</h2>
+            <p>Los huertos urbanos permiten producir alimentos saludables utilizando espacios reducidos y materiales reciclados.</p>
+        </div>
+    </div>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="footer">
+        <p>📍 Dirección: Av. 25 de Agosto y Chimborazo – La Troncal</p>
+        <p>📧 expoverde@istlt.edu.ec | ☎ 099-999-9999</p>
+        <p>© 2025 ISTLT – Departamento de Tecnología y Ambiente</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+

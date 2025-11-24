@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda - Expo Tecno Verde 2025</title>
+
+    <style>
+        /* FUENTE MODERNA */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+
+        /* HEADER GLSASS EFFECT */
+        header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            padding: 45px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        header::after {
+            content:"";
+            position: absolute;
+            width: 160%;
+            height: 140%;
+            background: rgba(255,255,255,0.12);
+            top: -20%;
+            left: -30%;
+            transform: rotate(20deg);
+            filter: blur(3px);
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+        header p {
+            margin-top: 8px;
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CONTENEDOR */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #1b5e20;
+            font-size: 30px;
+            border-left: 6px solid #43a047;
+            padding-left: 12px;
+            margin-bottom: 25px;
+        }
+
+        /* AGENDA CARDS */
+        .agenda-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+            border-left: 10px solid #43a047;
+            transition: 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agenda-item::before {
+            content: "✔";
+            position: absolute;
+            font-size: 58px;
+            right: -20px;
+            top: -20px;
+            opacity: 0.08;
+            color: #2e7d32;
+        }
+
+        .agenda-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+        }
+
+        .agenda-item h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #1b5e20;
+        }
+
+        .agenda-item p {
+            margin-top: 10px;
+            color: #455a64;
+            font-size: 15px;
+        }
+
+        /* BOTÓN VOLVER SUPER LLAMATIVO */
+        .volver {
+            display: inline-block;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 15px 28px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .volver:hover {
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #43a047, #2e7d32);
+        }
+
+        /* ADORNOS */
+        .separator {
+            height: 4px;
+            width: 70px;
+            background: #2e7d32;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Agenda del Evento</h1>
+    <p>Expo Tecno Verde 2025 • Innovación y Sostenibilidad</p>
+</header>
+
+<div class="container">
+
+    <h2>Programa del Día</h2>
+    <div class="separator"></div>
+
+    <div class="agenda-item">
+        <h3>08:00 – Registro de Participantes</h3>
+        <p>Entrega de credenciales y bienvenida personalizada.</p>
+    </div>
+
+    <div class="agenda-item">
+        <h3>09:00 – Inauguración Oficial</h3>
+        <p>Palabras del rector y autoridades del ISTLT.</p>
+    </div>
+
+    <div class="agenda-item">
+        <h3>10:00 – Conferencia: Energías Renovables</h3>
+        <p>Dictada por la experta en energía solar, *Ana Torres*.</p>
+    </div>
+
+    <div class="agenda-item">
+        <h3>11:30 – Exposición de Proyectos</h3>
+        <p>Recorrido por stands con demostraciones en vivo.</p>
+    </div>
+
+    <div class="agenda-item">
+        <h3>14:00 – Taller: Robótica Ecológica</h3>
+        <p>Desarrollo de EcoBots a partir de materiales reciclados.</p>
+    </div>
+
+    <div class="agenda-item">
+        <h3>16:00 – Reciclaje Inteligente</h3>
+        <p>Presentación de tecnologías sostenibles de *Luis Gómez*.</p>
+    </div>
+
+    <div class="agenda-item">
+        <h3>18:00 – Clausura</h3>
+        <p>Cierre del evento y entrega de reconocimientos.</p>
+    </div>
+
+    <br><br>
+
+    <a class="volver" href="expo_inicio.html">⬅ Volver al Inicio</a>
+
+</div>
+
+</body>
+</html>

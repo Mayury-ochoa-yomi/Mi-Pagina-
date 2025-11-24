@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expo Tecno Verde - Expositores</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(#e8f5e9, #c8e6c9);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: relative;
+            background: linear-gradient(90deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        .header-logo-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1600px;
+            opacity: 0.1;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .contenido-header {
+            position: relative;
+            z-index: 10;
+        }
+
+        .contenido-header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .contenido-header p.subtitulo {
+            margin-top: 6px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h2 {
+            color: #1b5e20;
+            font-size: 26px;
+            border-left: 5px solid #43a047;
+            padding-left: 10px;
+        }
+
+        /* ===== GRID DE EXPOSITORES ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        /* ===== TARJETAS ===== */
+        .card {
+            background: #ffffffdd;
+            backdrop-filter: blur(3px);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .card h3 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #4e7d52;
+            font-size: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 8px;
+            background: #a5d6a7;
+            color: #1b5e20;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .tag:hover {
+            background: #81c784;
+        }
+
+        /* ===== BOTÓN PÁGINA INICIAL ===== */
+        .botones {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #2e7d32;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #1b5e20;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="conciencia.png" alt="Logo fondo" class="header-logo-bg">
+    <div class="contenido-header">
+        <h1>Expositores</h1>
+        <p class="subtitulo">Innovadores comprometidos con el planeta</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <h2>Expositores destacados</h2>
+
+    <div class="grid">
+        <!-- Tarjeta 1 -->
+        <div class="card">
+            <img src="EcoBot_Educativo.jpg" alt="EcoBot Educativo">
+            <h3>Juan Pérez</h3>
+            <p><strong>Proyecto:</strong> EcoBots Educativos</p>
+            <p>Robots construidos con materiales reciclados que enseñan sobre energías renovables.</p>
+            <a href="https://www.youtube.com/watch?v=whXNDif5hTs" class="tag">Robótica Verde</a>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="card">
+            <img src="panel_solar.jpg" alt="Panel Solar">
+            <h3>María López</h3>
+            <p><strong>Proyecto:</strong> Mini Paneles Solares</p>
+            <p>Soluciones portátiles que convierten la energía solar en electricidad accesible.</p>
+            <a href="https://www.ecoflow.com/es/blog/mini-panel-solar-ecoflow" class="tag">Energía Solar</a>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="card">
+            <img src="compostaje.jpg" alt="Compostaje inteligente">
+            <h3>Carlos Méndez</h3>
+            <p><strong>Proyecto:</strong> Compostaje Inteligente</p>
+            <p>Un sistema automatizado para transformar desechos orgánicos en abono fértil.</p>
+            <a href="https://www.goldenalba.com/" class="tag">Reciclaje</a>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="card">
+            <img src="dron_verde.jpg" alt="Dron Verde">
+            <h3>Sofía Herrera</h3>
+            <p><strong>Proyecto:</strong> Drones para reforestación</p>
+            <p>Drones ecológicos capaces de sembrar semillas en terrenos difíciles.</p>
+            <a href="https://tecscience.tec.mx/es/tecnologia/drones-que-combaten-la-deforestacion/" class="tag">Tecnología Ambiental</a>
+        </div>
+    </div>
+
+    <div class="botones">
+        <a href="Untitled-1.html" class="boton">Página Inicial</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+

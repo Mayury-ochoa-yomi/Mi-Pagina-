@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expo Tecno Verde - Inscripciones</title>
+    <style>
+        /* ===================== RESET & BODY ===================== */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(#e8f5e9, #c8e6c9);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===================== HEADER ===================== */
+        header {
+            position: relative; /* Para logo gigante de fondo */
+            background: linear-gradient(90deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        /* Logo gigante transparente */
+        .header-logo-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1600px; /* ajusta tamaño si quieres */
+            opacity: 0.08;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Contenido del header */
+        .contenido-header {
+            position: relative;
+            z-index: 10;
+        }
+
+        .contenido-header img {
+            width: 110px;
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.4));
+        }
+
+        .contenido-header h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        .contenido-header p.subtitulo {
+            margin-top: 5px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* ===================== CONTENEDOR PRINCIPAL ===================== */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffffcc;
+            backdrop-filter: blur(3px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h3 {
+            color: #1b5e20;
+            border-left: 5px solid #43a047;
+            padding-left: 10px;
+            font-size: 22px;
+        }
+
+        /* ===================== FORMULARIO ===================== */
+        form label {
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #a5d6a7;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border: 1px solid #66bb6a;
+            box-shadow: 0 0 6px #a5d6a7;
+        }
+
+        button {
+            background: #2e7d32;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1b5e20;
+            transform: scale(1.02);
+        }
+
+        /* ===================== LISTA DE INSCRITOS ===================== */
+        ul {
+            background: #f1f8e9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+
+        li {
+            padding: 12px 8px;
+            border-bottom: 1px solid #c5e1a5;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .tag {
+            background: #a5d6a7;
+            color: #1b5e20;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Logo gigante transparente -->
+    <img src="conciencia.png" alt="Logo fondo" class="header-logo-bg">
+
+    <div class="contenido-header">
+        <img src="conciencia.png" alt="Expo Tecno Verde">
+        <h1>Inscripciones Expo Tecno Verde</h1>
+        <p class="subtitulo">Únete al evento ecológico más importante del año</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <h3>Formulario de inscripción</h3>
+
+    <form id="formulario">
+        <label>Nombre completo:</label>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+
+        <label>Correo electrónico:</label>
+        <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+
+        <label>Teléfono:</label>
+        <input type="tel" id="telefono" placeholder="0999999999">
+
+        <label>Tipo de participante:</label>
+        <select id="tipo">
+            <option>Estudiante</option>
+            <option>Docente</option>
+            <option>Expositor</option>
+            <option>Visitante</option>
+        </select>
+
+        <label>Institución / Empresa (opcional):</label>
+        <input type="text" id="institucion" placeholder="Nombre de la institución">
+
+        <button type="submit">Registrar participación</button>
+    </form>
+
+    <hr>
+
+    <h3>Lista de inscritos</h3>
+    <ul id="lista">
+        <li>No hay inscritos registrados.</li>
+    </ul>
+
+</div>
+
+<script>
+    // ===================== FUNCIONES LOCALSTORAGE =====================
+    const lista = document.getElementById('lista');
+
+    function cargarInscritos() {
+        const inscritos = JSON.parse(localStorage.getItem('inscritos')) || [];
+        lista.innerHTML = '';
+        if(inscritos.length === 0){
+            lista.innerHTML = '<li>No hay inscritos registrados.</li>';
+        } else {
+            inscritos.forEach(inscrito => {
+                const li = document.createElement('li');
+                li.textContent = `${inscrito.nombre} - ${inscrito.tipo} - ${inscrito.correo}`;
+                lista.appendChild(li);
+            });
+        }
+    }
+
+    // Manejar envío del formulario
+    document.getElementById('formulario').addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const telefono = document.getElementById('telefono').value;
+        const tipo = document.getElementById('tipo').value;
+        const institucion = document.getElementById('institucion').value;
+
+        if(!nombre || !correo || !telefono){
+            alert('Por favor completa todos los campos obligatorios');
+            return;
+        }
+
+        const inscritos = JSON.parse(localStorage.getItem('inscritos')) || [];
+        inscritos.push({ nombre, correo, telefono, tipo, institucion });
+        localStorage.setItem('inscritos', JSON.stringify(inscritos));
+
+        this.reset();
+        cargarInscritos();
+    });
+
+    window.onload = cargarInscritos;
+</script>
+
+</body>
+</html>
+
+
+

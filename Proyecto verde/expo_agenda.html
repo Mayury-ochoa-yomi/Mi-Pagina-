@@ -1,0 +1,225 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expo Tecno Verde - Agenda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f7f4;
+            color: #333;
+        }
+
+        header {
+            position: relative; /* Para el logo gigante */
+            background: linear-gradient(135deg, #43a047, #81c784);
+            color: white;
+            text-align: center;
+            padding: 50px 20px 40px;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            overflow: hidden;
+        }
+
+        /* Logo gigante transparente */
+        .header-logo-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1600px; /* Ajusta tamaño si quieres */
+            opacity: 0.08;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Contenido del header */
+        .contenido-header {
+            position: relative;
+            z-index: 10;
+        }
+
+        header img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        header h1 { 
+            font-size: 36px; 
+            font-weight: 700; 
+            margin-bottom: 10px; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2); 
+        }
+
+        header p { 
+            font-size: 16px; 
+            color: #e0f2f1; 
+            font-weight: 500; 
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -50px auto 40px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        h3 { color: #2e7d32; margin-bottom: 25px; font-weight: 600; font-size: 22px; }
+        form label { display: block; margin-bottom: 12px; font-weight: 500; }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid #dcecdc;
+            margin-top: 6px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background: #f7fdf7;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #43a047;
+            box-shadow: 0 4px 12px rgba(67, 160, 71, 0.2);
+            outline: none;
+        }
+
+        button {
+            background: linear-gradient(135deg, #43a047, #66bb6a);
+            color: white;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(67, 160, 71, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 160, 71, 0.4);
+        }
+
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .event-card {
+            background: #f0fff4;
+            border-radius: 18px;
+            padding: 20px 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .event-card h4 {
+            color: #2e7d32;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .event-card p { font-size: 14px; margin-bottom: 6px; }
+        .event-card span { font-weight: 600; color: #388e3c; }
+
+        hr { margin: 50px 0; border: none; border-top: 1px solid #dcecdc; }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Logo gigante transparente -->
+    <img src="conciencia.png" alt="Logo fondo" class="header-logo-bg">
+
+    <div class="contenido-header">
+        <img src="conciencia.png" alt="Expo Tecno Verde">
+        <h1>Agenda - Expo Tecno Verde</h1>
+        <p>Organiza tus eventos ecológicos fácilmente</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <h3>Agregar evento</h3>
+
+    <form id="eventForm">
+        <label>Título del evento:
+            <input type="text" id="title" placeholder="Nombre del evento" required>
+        </label>
+
+        <label>Fecha:
+            <input type="date" id="date" required>
+        </label>
+
+        <label>Hora:
+            <input type="time" id="time" required>
+        </label>
+
+        <label>Descripción:
+            <textarea id="description" rows="4" placeholder="Detalles del evento" required></textarea>
+        </label>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <hr>
+
+    <h3>Eventos guardados</h3>
+    <div class="events" id="eventsList">
+        <div class="event-card" id="noEvents">
+            <h4>No hay eventos todavía</h4>
+            <p>Agrega tus eventos usando el formulario.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const form = document.getElementById('eventForm');
+    const eventsList = document.getElementById('eventsList');
+    const noEvents = document.getElementById('noEvents');
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault(); // Evita recargar la página
+
+        const title = document.getElementById('title').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const description = document.getElementById('description').value;
+
+        const card = document.createElement('div');
+        card.classList.add('event-card');
+        card.innerHTML = `
+            <h4>${title}</h4>
+            <p><span>Fecha:</span> ${date}</p>
+            <p><span>Hora:</span> ${time}</p>
+            <p>${description}</p>
+        `;
+
+        if(noEvents) noEvents.remove();
+        eventsList.appendChild(card);
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
